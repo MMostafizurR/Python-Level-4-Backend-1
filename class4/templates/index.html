@@ -48,6 +48,7 @@
                 <th>Student Name</th>
                 <th>Email</th> 
                 <th>Roll Number</th>
+                <th>Image</th>
                 <th>Actions</th>
             </tr>
 
@@ -58,16 +59,15 @@
                 <td>{{ student.email }}</td>
                 <td>{{ student.roll_number }}</td>
                 <td>
-                    <a href="{% url 'editstudent' student.id %}">Edit</a> | 
-                    <a href="{% url 'deletestudent' student.id %}">Delete</a>
-
-                    <br>
-
                     {% if student.image %}
                         <img src="{{ student.image.url }}" alt="{{ student.name }}" width="100", height="100">
                     {% else %}
                         <p>No image available</p>
                     {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'editstudent' student.id %}">Edit</a> | 
+                    <a href="{% url 'deletestudent' student.id %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}

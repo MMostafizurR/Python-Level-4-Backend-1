@@ -63,3 +63,6 @@ def signup(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
+        if password == confirm_password:
+            
+
