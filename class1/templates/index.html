@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Custom Route Active</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/40 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-lg font-bold tracking-tight text-emerald-400">🐍 Django App Portal</div>
+            <nav class="space-x-4 text-sm text-slate-400">
+                <a href="/home/" class="text-emerald-400 font-semibold border-b-2 border-emerald-500 pb-1">/home</a>
+                <a href="/admin/" class="hover:text-slate-200 transition">/admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Showcase -->
+    <main class="max-w-2xl mx-auto px-6 py-16 text-center my-auto">
+        <!-- Visual Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6 font-mono">
+            Successfully Bound -> path('home/', home)
+        </div>
+        
+        <h1 class="text-4xl font-extrabold text-white tracking-tight sm:text-5xl mb-4">
+            Custom Path Connected!
+        </h1>
+        
+        <p class="text-base text-slate-400 mb-8 max-w-md mx-auto">
+            You successfully bypassed the default rocket screen. This layout is now explicitly served at your custom designated endpoint.
+        </p>
+
+        <!-- Informational box mapping current active URL -->
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-2xl inline-block text-left w-full max-w-md">
+            <div class="flex items-center gap-2 mb-3">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-slate-500 font-mono ml-2">Active Local Route</span>
+            </div>
+            <div class="bg-slate-950 p-3 rounded border border-slate-800/60 font-mono text-sm text-slate-300">
+                <span class="text-slate-500">URL:</span> http://127.0.0.1:8000<span class="text-emerald-400 font-bold">/home/</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 py-6 text-center text-xs text-slate-600">
+        &copy; 2026 Django level 4 backend environment &bull; View route verification
+    </footer>
+
+</body>
+</html>

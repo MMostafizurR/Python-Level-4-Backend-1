@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Welcome to My Website</title>
+    <style>
+        table, td, th {
+        width: 90%;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Welcome to My Website</h2>
+    </header>
+
+    <main>
+        <h1>Hello, World!</h1>
+        <p>This is a simple HTML template setup to test if my local server configuration works correctly.</p>
+        <a href="#" class="btn">Click Me</a>
+    </main>
+
+    <h1>Welcome, {{ student_name }}!</h1>
+    <p>Course: {{ course_name }}</p>
+    <p>Address: {{ address }}</p>
+
+    <table>
+            <tr>
+                <th>Teacher Name</th>
+                <th>Email</th> 
+                <th>Subject</th>
+            </tr>
+        {% for teacher in teachers %}
+            <tr>
+                <td>{{ teacher.name }}</td>
+                <td>{{ teacher.email }}</td>
+                <td>{{ teacher.subject }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <br>
+
+    <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th> 
+                <th>Roll Number</th>
+                <th>Actions</th>
+            </tr>
+
+        {% for student in students %}
+
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.roll_number }}</td>
+                <td>
+                    <a href="{% url 'editstudent' student.id %}">Edit</a> | 
+                    <a href="{% url 'deletestudent' student.id %}">Delete</a>
+
+                    <br>
+
+                    {% if student.image %}
+                        <img src="{{ student.image.url }}" alt="{{ student.name }}" width="100", height="100">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
