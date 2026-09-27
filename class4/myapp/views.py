@@ -2,6 +2,9 @@ from django.shortcuts import redirect, render
 
 from myapp.models import Student, Teachers
 
+from myapp.models import CustomUser
+
+
 # Create your views here.
 
 def home(request):
@@ -56,13 +59,23 @@ def delete_student(request, student_id):
     student.delete()
     return redirect('home')
 
-def signup(request):
 
+def signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
 
         if password == confirm_password:
+            user = CustomUser(username=username)
+            user.set_password(password)
+            user.save()
+            return redirect('home')
+        else:
+            context = {
+                'error': 'Passwords do not match. Please try again.'
+            }
+            return render(request, 'signup.html', context)
             
+    return render(request, 'signup.html')
 
